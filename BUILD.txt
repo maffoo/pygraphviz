@@ -1,0 +1,4 @@
+To build on windows:
+
+1. Install graphviz 2.38 from http://graphviz.org/Download_windows.php.
+1. Run `python setup.py bdist_msi`. The installer will be built in `dist/`.

@@ -111,8 +111,8 @@ def get_graphviz_dirs():
 
     # Windows
     # Unknown - use command line -I and -L switches to set
-    include_dirs = None
-    library_dirs = None
+    include_dirs = 'C:\\Program Files (x86)\\Graphviz2.38\\include'  # None
+    library_dirs = 'C:\\Program Files (x86)\\Graphviz2.38\\lib\\debug\\lib'  # None
 
     if sys.platform != "win32":
         # Attempt to find Graphviz installation

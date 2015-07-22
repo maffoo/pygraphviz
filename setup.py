@@ -43,19 +43,21 @@ data = [
     (os.path.join(docdirbase, 'examples'), glob("examples/*.dat")),
     (os.path.join(docdirbase, 'examples'), glob("examples/*.dat.gz")),
 ]
-package_data = {'': ['*.txt'], }
+package_data = {'': ['*.txt', '*.dll']}
 
 if __name__ == "__main__":
     define_macros = []
     if sys.platform == "win32":
         define_macros = define_macros.append(('GVDLL', None))
 
+    include_dir, library_dir = get_graphviz_dirs()
+
     extension = [
         Extension(
             "pygraphviz._graphviz",
             ["pygraphviz/graphviz_wrap.c"],
-            include_dirs=[],
-            library_dirs=[],
+            include_dirs=[include_dir],
+            library_dirs=[library_dir],
             libraries=["cgraph", "cdt"],
             define_macros=define_macros
         )
